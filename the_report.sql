@@ -12,3 +12,10 @@ from students s
 join grades g 
 on s.marks between g.min_mark and g.max_mark
 order by g.grade desc, s.marks asc;
+
+
+//추가로 생각해볼 거
+/*
+LEFT JOIN해도 결과는 같았다.
+다만 점수가 없는 학생 레코드의 경우엔 등급과 점수 모두 null로 처리되었다.
+*/
