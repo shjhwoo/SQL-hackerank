@@ -1,6 +1,10 @@
-select w.id, wp.age, w.coins_needed, w.power
+select temp.id, wp.age, temp.mincoin, temp.power
+from (select w.id, MIN(w.coins_needed) as mincoin, w.power, w.code
 from Wands w
-left join Wands_property wp on w.code = wp.code
+group by w.code, w.power) temp
+join Wands_property wp 
+on temp.code = wp.code
 where wp.is_evil = 0
-group by wp.age, w.power
-order by w.power desc, wp.age desc;
+order by temp.power desc, wp.age desc
+
+//이것도 안됨
