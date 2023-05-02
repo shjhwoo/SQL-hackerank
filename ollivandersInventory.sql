@@ -26,3 +26,5 @@ AND W.coins_needed =
     AND P1.age = P.age    
 )
 ORDER BY W.power DESC, P.age DESC
+
+-- 서브쿼리를 AND 조건에 사용하였음. 
